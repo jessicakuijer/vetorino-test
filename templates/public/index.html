@@ -1,0 +1,48 @@
+{%	set title = 'Homepage' %}
+
+{% extends "public/base.html" %}
+
+{% block content %}
+
+	<div class="page-header">
+		<h1>Homepage</h1>
+	</div>
+
+	<!-- <form class="form-inline" method="get" action="{{ app_url }}/hoverkraft/search">
+		<div class="form-group">
+			<input type="text" class="form-control" name="*has" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-primary">Search</button>
+	</form> -->
+
+	<!-- <hr> -->
+
+	<p>Blocks</p>
+
+{% if blocks|length > 0 %}
+	<div class="row">
+{% 	for homepage in blocks %}
+		<div class="col-sm-4">
+			<div class="thumbnail">
+				<img src="{{ app_path }}{{ homepage.picture }}" alt="{{ homepage.title }}">
+				<div class="caption">
+					<h3>{{ homepage.title }}</h3>
+					<div>
+						{{ homepage.description }}
+					</div>
+					<p><a href="" class="btn btn-primary" role="button">Check this link</a></p>
+				</div>
+			</div>
+		</div>
+{% 		if loop.index % 3 == 0 %}
+	</div>
+	<div class="row">
+{% 		endif %}
+{% 	endfor %}
+	</div>
+{% else %}
+	<hr>
+	<p class="text-muted text-center">Sorry, no blocks...</p>
+{% endif %}
+
+{% endblock content %}

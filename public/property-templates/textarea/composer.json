@@ -1,0 +1,18 @@
+{
+	"name": "lagan/template-textarea",
+	"type": "lagan-template",
+	"description": "Textarea template for Lagan properties that require multiple lines of text input.",
+	"keywords": ["lagan","text","property","template"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Lútsen Stellingwerff",
+			"email": "lutsenstellingwerff@gmail.com",
+			"homepage": "http://www.hoverkraft.nl",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"lagan/template-installer-plugin": "*"
+	}
+}

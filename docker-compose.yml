@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+
+  mysql:
+    image: mysql:5.7.36
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=vetorino
+    ports:
+      - "3306:3306"
+
+
