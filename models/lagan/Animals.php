@@ -6,19 +6,19 @@ namespace Lagan\Model;
  * Example Lagan content model
  */
 
-class Homepage extends \Lagan\Lagan {
+class Animals extends \Lagan\Lagan {
 
     function __construct() {
-        $this->type = 'homepage';
+        $this->type = 'animals';
 
         // Description in admin interface
-        $this->description = 'homepage';
+        $this->description = 'Animaux';
 
         $this->properties = [
             // Always have a title
             [
                 'name' => 'title',
-                'description' => 'Title',
+                'description' => 'Nom',
                 'required' => true,
                 'searchable' => true,
                 'type' => '\Lagan\Property\Str',
@@ -26,18 +26,11 @@ class Homepage extends \Lagan\Lagan {
             ],
             [
                 'name' => 'description',
-                'description' => 'Description',
+                'description' => 'Male / femelle / autres signes distinctifs',
                 'searchable' => true,
                 'type' => '\Lagan\Property\Str',
                 'input' => 'textarea'
             ],
-            // [
-            //     'name' => 'description',
-            //     'description' => 'Description',
-            //     'searchable' => true,
-            //     'type' => '\Lagan\Property\Str',
-            //     'input' => 'trumbowyg'
-            // ],
             [
                 'name' => 'picture',
                 'description' => 'Image selected',
@@ -56,32 +49,13 @@ class Homepage extends \Lagan\Lagan {
                 'input' => 'upload',
                 'validate' => [ ['extension', 'allowed=jpeg,jpg,gif,png'], ['size', 'size=1M'] ]
             ],
-            // [
-            //     'name' => 'position',
-            //     'description' => 'Order',
-            //     'autovalue' => true,
-            //     'type' => '\Lagan\Property\Position',
-            //     'input' => 'text'
-            // ],
-            // [
-            //     'name' => 'slug',
-            //     'description' => 'Slug',
-            //     'autovalue' => true,
-            //     'type' => '\Lagan\Property\Slug',
-            //     'input' => 'text'
-            // ],
-            // [
-            //     'name' => 'crew',
-            //     'description' => 'Crewmembers for this Hoverkraft',
-            //     'type' => '\Lagan\Property\Onetomany',
-            //     'input' => 'tomany'
-            // ],
-            // [
-            //     'name' => 'feature',
-            //     'description' => 'Features this Hoverkraft has',
-            //     'type' => '\Lagan\Property\Manytomany',
-            //     'input' => 'tomany'
-            // ]
+            [
+                'name' => 'owners',
+                'description' => 'Propriétaire',
+                'required' => true,
+                'type' => '\Lagan\Property\Manytoone',
+                'input' => 'manytoone'
+            ]
         ];
     }
 
